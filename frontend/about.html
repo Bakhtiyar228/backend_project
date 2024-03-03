@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="icon" href="images/favicon.png" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>WeBooks — Enjoy Reading!</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/">
+            <span>
+              WeBooks
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">  
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link pl-lg-0" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="categories">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog"> Blog </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact">Contact Us</a>
+              </li>
+            </ul>
+            <form class="search_form" id="searchform">
+              <input type="text" class="form-control" id="search" placeholder="Search here..." required> 
+              <button type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+          <div class="logreg">
+            <a href="auth"><button class="log hide" id="loginButton">Log in</button></a>
+            <a href="auth"><button class="reg hide" id="registerButton">Sign up</button></a>
+          </div>
+          <a href="profile"><img src="" id="avatar" class="avatar hide" ></img></a>
+          <div class="dropdown">
+            <button class="dropbtn hide" id="profile"></button>
+            <div class="dropdown-content">
+              <a href="profile"><img src="images/profile_icon.png"> Profile</a>
+              <a href="admin" id="adminpanel"><img src="images/admin_icon.png"> Admin Panel</a>
+              <a href="cart"><img src="images/cart_icon.png"> Shopping Сart</a>
+              <a href="/" id="logout"><img src="images/exit_icon.png"> Log out</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+  <section class="about_section about_page layout_padding">
+    <div class="container ">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="images/about-img.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About Our Bookstore
+              </h2>
+            </div>
+            <p id="about_us"></p>
+            <a href="blog">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="info_detail">
+            <h4>
+              About Us
+            </h4>
+            <p id="aboutus_footer"></p>
+            <div class="info_social">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="https://www.google.com/maps?ll=51.08865,71.424753&z=19&t=m&hl=ru&gl=US&mapclient=apiv3&cid=5620292333161895550  ">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="contact.html">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +7 700 287 60 81
+                </span>
+              </a>
+              <a href="contact.html">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  220484@astanait.edu.kz
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="info_contact">
+            <h4>
+              Newsletter
+            </h4>
+            <form action="#" id="emailform">
+              <input type="email" id="email" placeholder="Enter email" />
+              <button type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="map_container">
+            <div class="map">
+              <div id="googleMap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; 2024 All Rights Reserved by
+        <a href="https://html.design/">Bakhtiyar, Sanzhar and Nurzhan</a>
+      </p>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=initMap" async defer></script>
+ <script>document.addEventListener('DOMContentLoaded', async function() {
+  try {
+      const aboutText = localStorage.getItem('aboutText');
+      if (aboutText) {
+          document.getElementById('about_us').textContent = aboutText;
+      } else {
+          const response = await fetch('/about', {
+              method: 'POST',
+          });
+          const { text } = await response.json();
+          localStorage.setItem('aboutText', text);
+          document.getElementById('about_us').textContent = text;
+      }
+  } catch (error) {
+      console.error('Error fetching about text:', error.message);
+  }
+});
+</script>
+
+</body>
+
+</html>

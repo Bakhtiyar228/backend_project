@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="icon" href="images/favicon.png" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>WeBooks — Enjoy Reading!</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body id="profile-page">
+  <header class="header_section">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="/">
+          <span>
+            WeBooks
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""> </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">  
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link pl-lg-0" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about"> About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog"> Blog </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact">Contact Us</a>
+            </li>
+          </ul>
+          <form class="search_form" id="searchform">
+            <input type="text" class="form-control" id="search" placeholder="Search here..." required>
+            <button type="submit">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+        <div class="logreg">
+          <a href="auth"><button class="log hide" id="loginButton">Log in</button></a>
+          <a href="auth"><button class="reg hide" id="registerButton">Sign up</button></a>
+        </div>
+        <a href="profile"><img src="" id="avatar" class="avatar hide"></img></a>
+        <div class="dropdown">
+          <button class="dropbtn hide" id="profile"></button>
+          <div class="dropdown-content">
+            <a href="profile"><img src="images/profile_icon.png"> Profile</a>
+            <a href="admin" id="adminpanel"><img src="images/admin_icon.png"> Admin Panel</a>
+            <a href="cart"><img src="images/cart_icon.png"> Shopping Сart</a>
+            <a href="/" id="logout"><img src="images/exit_icon.png"> Log out</a>
+          </div>
+        </div>
+      </nav> 
+    </div>
+  </header>
+  <section class="layout_padding">
+    <div class="notification-box fixed-div" id="notification"></div> <!--notification-->
+    <div class="container">
+    <div class="main-body">
+      <div class="card">
+        <div class="d-flex flex-column align-items-center text-center">
+          <img src="" id="avatarprofile" class="avatarprofile" ></img>
+            <div class="mt-3">
+                <h4 id="profileusername"></h4>
+                <p class="text-secondary mb-1" id="country2">Student</p>
+                <p class="text-muted font-size-sm"></p>
+                <button class="btn btn-outline-primary mb-2" id="editprofile">Edit</button>
+                <div class="container position-relative">
+                <button class="btn btn-primary  mb-2 hide" id="savechanges">Save changes</button>
+                <p class="hide" id="spinner"><span class="loader spinner"></span></p>
+              </div>
+            </div>
+              <form>
+          </div>
+      </div>
+  </div>
+  <div class="user-details-block mt-3">
+    <div class="row">
+      <div id="accountDetailsContainer" class="col-md-8">
+        <div class="card h-100">
+          <div class="card-header">Account Details</div>
+          <form>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6 px-4">
+                    <label class="small mb-1">First name</label>
+                    <p class="card-header" id="fname"></p>
+                    <input class="form-control hide" id="newfname" type="text" placeholder="Enter your first name" value="">
+                </div>
+                <div class="col-md-6 px-4">
+                    <label class="small mb-1">Second name</label>
+                    <p class="card-header" id="sname"></p>
+                    <input class="form-control hide" id="newsname" type="text" placeholder="Enter your last name" value="">
+                </div>
+            </div>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6 px-4">
+                    <label class="small mb-1">Job</label>
+                    <p class="card-header" id="job"></p>
+                    <input class="form-control hide" id="newjob" type="text" placeholder="Enter your organization name" value="">
+                </div>
+                <div class="col-md-6 px-4">
+                  <label>Country:</label>
+                  <p class="card-header" id="country"></p>
+                  <select id="newcountry" class="form-control hide">
+                      <option value="">Select Country</option>
+                  </select>
+              </div>
+            </div>
+            <div class="mb-3 px-2"> 
+                <label class="small mb-1">Email</label>
+                <p class="card-header" id="email"></p>
+                <input class="form-control hide" id="newemail" type="email" placeholder="Enter your email address" value="">
+            </div>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6 px-4">
+                    <label class="small mb-1">Birthday</label>
+                    <p class="card-header" id="birthday"></p>
+                    <input class="form-control hide" id="newbirthday" type="date" name="birthday" placeholder="Enter your birthday" value="">
+                </div>
+                 <div class="col-md-6 px-4" id="ageplace">
+                <label class="small mb-1">Age</label>
+                <p class="card-header" id="age"></p>
+            </div>
+                <div class="col-md-6 px-4 hide" id="avatarchange">
+                    <div class="d-flex">
+                        <label class="small mb-1">Profile image</label>
+                        <p id="deleteresult" class="small px-2 deletebutton d-none">Avatar has been deleted</p>
+                        <p id="fileName" class="small px-2 hide"></p> 
+                    </div>
+                    <div class="d-flex">
+                        <input type="file" id="avatarInput" style="display: none;" accept="image/*">
+                        <label for="avatarInput" class="btn btn-primary me-2 custom-label">Upload new image</label>
+                        <img src="images/delete.png" id="deleteavatar" alt="Delete" class="delete-icon">
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+          </div>
+         </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body" id="cardBody">
+            <h5 class="card-title">About me</h5>
+            <p id="aboutmetext"></p>
+            <textarea class="hide" id="change_aboutme" placeholder="" maxlength="406"></textarea>
+           </div>
+         </div>
+      </div>     
+    </div>
+ </div>
+   <div class="row">
+     <div class="col-md-12 ">
+       <div class="card mt-3">
+         <div class="card-body">
+           <h5 class="card-title">Orders History</h5>
+           <p id="empty_history" class="hide">You dont have any orders.</p>
+             <table class="table table-striped hide" id="orders_history">
+               <thead>
+              <tr>
+                <th>Order №</th>
+                <th>Book Name</th>
+                <th>Purchased On</th>
+                <th>Delivery Status</th>
+                <th>Payment Method</th>
+                <th>Payment Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+            </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>             
+  </div>
+</section>
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="info_detail">
+            <h4>
+              About Us
+            </h4>
+            <p id="aboutus_footer">
+            </p>
+            <div class="info_social">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="https://www.google.com/maps?ll=51.08865,71.424753&z=19&t=m&hl=ru&gl=US&mapclient=apiv3&cid=5620292333161895550  ">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="contact.html">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +7 700 287 60 81
+                </span>
+              </a>
+              <a href="contact.html">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  220484@astanait.edu.kz
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="info_contact">
+            <h4>
+              Newsletter
+            </h4>
+            <form action="#" id="emailform">
+              <input type="email" id="email" placeholder="Enter email" />
+              <button type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="map_container">
+            <div class="map">
+              <div id="googleMap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; 2024 All Rights Reserved by
+        <a href="https://html.design/">Bakhtiyar, Sanzhar and Nurzhan</a>
+      </p>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=initMap" async defer></script>
+</body>
+
+</html>

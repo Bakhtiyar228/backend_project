@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="icon" href="images/favicon.png" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>WeBooks — Enjoy Reading!</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" /> 
+</head>
+
+<body>
+  <header class="header_section">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="/">
+          <span>
+            WeBooks
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""> </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">  
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link pl-lg-0" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about"> About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog"> Blog </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact">Contact Us</a>
+            </li>
+          </ul>
+          <form class="search_form" id="searchform">
+            <input type="text" class="form-control" id="search" placeholder="Search here..." required> 
+            <button type="submit">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+        <div class="logreg">
+          <a href="auth"><button class="log hide" id="loginButton">Log in</button></a>
+          <a href="auth"><button class="reg hide" id="registerButton">Sign up</button></a>
+        </div>
+        <a href="profile"><img src="" id="avatar" class="avatar hide" ></img></a>
+        <div class="dropdown">
+          <button class="dropbtn hide" id="profile"></button>
+          <div class="dropdown-content">
+            <a href="profile"><img src="images/profile_icon.png"> Profile</a>
+            <a href="admin" id="adminpanel"><img src="images/admin_icon.png"> Admin Panel</a>
+            <a href="cart"><img src="images/cart_icon.png"> Shopping Сart</a>
+            <a href="/" id="logout"><img src="images/exit_icon.png"> Log out</a>
+          </div>
+        </div>
+      </nav>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row row-offcanvas row-offcanvas-right">
+      <nav class="bg-white sidebar sidebar-offcanvas" id="sidebar">
+        <div class="user-info">
+          <img src="" id="avatarprofile" class="avatarprofile"></img>
+          <p class="name" id="profileusername"></p>
+          <p class="designation">User</p>
+          <span class="online"></span>
+        </div>
+        <ul class="nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="admin">
+              <img src="images/icons/1.png" alt="">
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="forms">
+              <img src="images/icons/005-forms.png" alt="">
+              <span class="menu-title">Forms</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tables">
+              <img src="images/icons/5.png" alt="">
+              <span class="menu-title">Tables</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="information">
+              <img src="images/icons/008-list.png" alt="">
+              <span class="menu-title">Information</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <img src="images/icons/10.png" alt="">
+              <span class="menu-title">Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+</div> </div>
+
+<div class="overlay d-none" id="order_confirmation">
+  <div class="floating-div">
+    <button class="close-button">×</button>
+    <p>Order confirmation</p>
+    <div class="d-flex">
+      <img id="avatarprofile_order" class="useravatar">
+      <div class="name-details">
+        <p id="username_order" class="card-header"></p>
+        <p id="name_order" class="card-header">Book Name</p>
+        <p id="price_order" class="card-header">Price</p>
+        <p id="sname_order" class="card-header">Description</p>
+      </div>
+    </div>
+    <p id="order_description">Text</p>
+  <div class="btn-group">
+          <a href="admin" class="btn btn-outline-success btn-md mr-5">Approve</a>
+          <a href="admin" class="btn btn-outline-danger btn-md ml-5">Reject</a>
+        </div>
+        
+      
+  </div>
+</div>
+
+<div class="content-wrapper">
+  <h3 class="page-heading mb-4">Dashboard</h3>
+  <div class="row">
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 mb-4">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="float-left">
+              <h4 class="text-danger">
+                <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i>
+              </h4>
+            </div>
+            <div class="float-right">
+              <p class="card-text text-dark">Users</p>
+              <h4 class="bold-text" id="users_count"></h4>
+            </div>
+          </div>
+          <p class="text-muted">
+            <i class="fa fa-exclamation-circle mr-1" aria-hidden="true"></i> Registered only
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 mb-4">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="float-left">
+              <h4 class="text-warning">
+                <i class="fa fa-shopping-cart highlight-icon" aria-hidden="true"></i>
+              </h4>
+            </div>
+            <div class="float-right">
+              <p class="card-text text-dark">Orders</p>
+              <h4 class="bold-text" id="orders_count"></h4>
+            </div>
+          </div>
+          <p class="text-muted">
+            <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> Product-wise sales
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 mb-4">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="float-left">
+              <h4 class="text-success">
+                <i class="fa fa-dollar highlight-icon" aria-hidden="true"></i>
+              </h4>
+            </div>
+            <div class="float-right">
+              <p class="card-text text-dark">Earned</p>
+              <h4 class="bold-text" id="profit"></h4>
+            </div>
+          </div>
+          <p class="text-muted">
+            <i class="fa fa-calendar mr-1" aria-hidden="true"></i> Total Sales
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 mb-4">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="float-left">
+              <h4 class="text-primary">
+                <i class="fa fa-envelope highlight-icon" aria-hidden="true"></i>
+              </h4>
+            </div>
+            <div class="float-right">
+              <p class="card-text text-dark">Subscribers</p>
+              <h4 class="bold-text" id="subscribers_count"></h4>
+            </div>
+          </div>
+          <p class="text-muted">
+            <i class="fa fa-repeat mr-1" aria-hidden="true"></i> Just Updated
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Orders</h5>
+          <div class="row">
+            <div class="col-12">
+              <div class="mb-4">
+                <p class="card-text text-muted mb-2">Textbooks</p>
+                <div class="progress progress-slim">
+                  <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" id="textbooks"></div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <p class="card-text text-muted mb-2">Science</p>
+                <div class="progress progress-slim">
+                  <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" id="science"></div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <p class="card-text text-muted mb-2">History</p>
+                <div class="progress progress-slim">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" id="history"></div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <p class="card-text text-muted mb-2">Biography</p>
+                <div class="progress progress-slim">
+                  <div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" id="biography"></div>
+                </div>
+                
+              </div>
+              <div class="mb-4">
+                <p class="card-text text-muted mb-2">Adventure</p>
+                <div class="progress progress-slim">
+                  <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" id="adventure"></div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <p class="card-text text-muted mb-2">Fantasy</p>
+                <div class="progress progress-slim">
+                  <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" id="fantasy"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <p class="text-muted mb-0">
+                Note: Order details get updated every 20 minutes
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title row justify-content-center ">TOP SALES! </h5>
+          <div class="custom-legend-container w-75 mx-auto">
+            <img src="https://m.media-amazon.com/images/I/71OZY035QKL._AC_UF1000,1000_QL80_.jpg" class="w-100 h-100">
+            <hr>
+            <h5 id="topsales" class="row justify-content-center"></h5>
+            <hr>
+          </div>
+          <div id="sales-chart-legend" class="legend-right"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Sales by region</h5>
+          <div class="table-responsive table-sales">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th colspan="2">
+                    Country
+                  </th>
+                  <th class="text-right">
+                    Sales
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="regionTableBody">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-deck">
+    <div class="card col-lg-12 px-0 mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Last Orders</h5>
+        <div class="table-responsive">
+          <table class="table center-aligned-table" id="orders_all">
+            <thead>
+                <tr class="text-primary">
+                    <th>Order №</th>
+                    <th>User</th>
+                    <th>Book Name</th>
+                    <th>Purchased On</th>
+                    <th>Delivery Status</th>
+                    <th>Payment Method</th>
+                    <th>Payment Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="info_detail">
+            <h4>
+              About Us
+            </h4>
+            <p id="aboutus_footer"></p>
+            <div class="info_social">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="https://www.google.com/maps?ll=51.08865,71.424753&z=19&t=m&hl=ru&gl=US&mapclient=apiv3&cid=5620292333161895550  ">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="contact.html">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +7 700 287 60 81
+                </span>
+              </a>
+              <a href="contact.html">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  220484@astanait.edu.kz
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="info_contact">
+            <h4>
+              Newsletter
+            </h4>
+            <form action="#" id="emailform">
+              <input type="email" id="email" placeholder="Enter email" />
+              <button type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info-col">
+          <div class="map_container">
+            <div class="map">
+              <div id="googleMap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; 2024 All Rights Reserved by
+        <a href="https://html.design/">Bakhtiyar, Sanzhar and Nurzhan</a>
+      </p>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=initMap" async defer></script>
+</body>
+</html>
